@@ -5,13 +5,6 @@ import React from 'react';
 import Todo from './Todo';
 
 
-const todoList = ({todos}) => {
-    console.log(todos)
-
-        const todosList = todos.map(todo => <Todo key={todo.id}>{todo.task}</Todo>)
-
-
-        return todosList
-}
+const todoList = ({todos}) => todos.map(todo => <Todo key={todo.id}>{todo.task}</Todo>);
 
 export default todoList;
