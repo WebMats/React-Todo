@@ -2,11 +2,10 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './App.css';
+
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
     todos: [
       { task: 'Read for one hour', id: 1528817077286, completed: false},
@@ -19,18 +18,15 @@ class App extends React.Component {
   submitFormHandler = (e) => {
     e.preventDefault();
     this.setState(prevState => {
-      if (prevState.todos.find(todo => todo.task === prevState.newTodo)) {
-        return;
-      }
+      if (prevState.todos.find(todo => todo.task === prevState.newTodo)) return;
       const newTask = {task: prevState.newTodo, id: new Date().valueOf(), completed: false}
       return {todos: [...prevState.todos, newTask], newTodo: ''}
     })
   }
 
   render() {
-    console.log(this.state.todos)
     return (
-      <div>
+      <div className="App">
         <TodoList todos={this.state.todos} />
         <TodoForm 
           submited={this.submitFormHandler} 

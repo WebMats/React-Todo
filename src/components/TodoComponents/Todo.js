@@ -1,9 +1,12 @@
 import React from 'react';
 
+import './TodoComponents.css';
+
+
 const todo = (props) => {
 
         return(
-                <p>{props.children}</p>
+                <p className="Todo">{props.children}</p>
         )
 }
 
