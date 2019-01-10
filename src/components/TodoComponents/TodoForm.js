@@ -5,9 +5,9 @@ import './Todo.css';
 
 const todoForm = (props) => (
         <form className="TodoForm" onSubmit={props.submited} autoComplete="off">
-                <input onChange={props.changed} className="Input" name="newTodo" value={props.newTodo} />
+                <input onChange={props.changed} name="newTodo" value={props.newTodo} />
                 <button className="AddBtn" >Add Todo</button>
-                <button className="ClrBtn" type="button">Clear Completed</button>
+                <button className="ClrBtn" type="button" onClick={props.clearCompleted}>Clear Completed</button>
         </form>
 )
 
