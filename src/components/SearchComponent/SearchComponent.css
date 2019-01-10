@@ -1,0 +1,14 @@
+.SearchForm {
+    margin-top: 1rem;
+}
+
+.SearchForm input {
+        font-size: 2rem;
+        width: 24rem;
+        text-align: center;
+        outline: 0;
+        border: 10px solid #F7F7F7;
+        border-radius: 5px;
+        margin-top: 1rem;
+        margin-right: 2rem;
+}
