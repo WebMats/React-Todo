@@ -45,16 +45,15 @@ class App extends React.Component {
   }
   searchedTodosHandler = (e) => {
     e.persist();
-    if (e.target.value.length === 0) {
-      return { searchedTodos: [] }
-    }
     this.setState(prevState => {
+      if (e.target.value.length === 0) {
+        return { searchedTodos: [] }
+      }
       return { searchedTodos: prevState.todos.filter(todo => todo.task.toLowerCase().includes(e.target.value.toLowerCase())) }
     })
   }
 
   render() {
-    console.log(this.state.searchedTodos)
     return (
       <div className="App">
         <TodoList todos={this.state.todos} setComplete={this.setCompleteHandler} />
