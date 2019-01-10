@@ -19,15 +19,24 @@ class App extends React.Component {
     e.preventDefault();
     this.setState(prevState => {
       if (prevState.todos.find(todo => todo.task === prevState.newTodo)) return;
-      const newTask = {task: prevState.newTodo, id: new Date().valueOf(), completed: false}
-      return {todos: [...prevState.todos, newTask], newTodo: ''}
+
+      const newTask = { task: prevState.newTodo, id: Date.now(), completed: false }
+      return { todos: [...prevState.todos, newTask], newTodo: '' }
+    })
+  }
+
+  setCompleteHandler = (id) => {
+    this.setState(prevState => {
+      const copiedTasks = [...prevState.todos];
+      (copiedTasks.find(cptsk => cptsk.id === id)).completed = true;
+      return({todos: copiedTasks})
     })
   }
 
   render() {
     return (
       <div className="App">
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} setComplete={this.setCompleteHandler} />
         <TodoForm 
           submited={this.submitFormHandler} 
           changed={(e) => {this.setState({newTodo: e.target.value})}} 

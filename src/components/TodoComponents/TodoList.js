@@ -5,6 +5,10 @@ import React from 'react';
 import Todo from './Todo';
 
 
-const todoList = ({todos}) => todos.map(todo => <Todo key={todo.id}>{todo.task}</Todo>);
+const todoList = ({todos, ...props}) => todos.map(todo => <Todo 
+                                                    completed={todo.completed} 
+                                                    clicked={() => props.setComplete(todo.id)} 
+                                                    key={todo.id}
+                                                >{todo.task}</Todo>);
 
 export default todoList;

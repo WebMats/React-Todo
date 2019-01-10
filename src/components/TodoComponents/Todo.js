@@ -1,13 +1,12 @@
 import React from 'react';
 
-import './TodoComponents.css';
+import './Todo.css';
 
 
-const todo = (props) => {
-
-        return(
-                <p className="Todo">{props.children}</p>
-        )
-}
+const todo = (props) => <p 
+                            onClick={props.clicked} 
+                            style={ props.completed ? {textDecoration: 'line-through'} : null} 
+                            className="Todo"
+                        >{props.children}</p>
 
 export default todo;
